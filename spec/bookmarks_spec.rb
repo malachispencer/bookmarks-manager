@@ -9,9 +9,9 @@ describe Bookmarks do
       ]
 
       bookmarks = Bookmarks.all
-      
+
       test_bookmarks.each do |bookmark|
-        expect(bookmakrs).to include(bookmark)
+        expect(bookmarks).to include(bookmark)
       end
     end
   end
