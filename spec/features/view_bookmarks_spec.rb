@@ -1,6 +1,7 @@
-feature 'Viewing bookmarks' do
-  scenario 'visiting the index page' do
+feature 'viewing bookmarks' do
+  scenario 'visiting the bookmarks page' do
     visit('/')
-    expect(page).to have_content('Bookmarks Manager')
+    click_link('bookmarks')
+    expect(page).to have_content('bookmarks')
   end
 end
