@@ -10,10 +10,10 @@ I'd like to be able to show the full list of my bookmarks.
 
 ## Setting Up The Database
 
-1) Connect to ```psql``` in the command line
+1) Connect to ```psql``` in the command line.
 
-2) Create the database using the command ```CREATE DATABASE "bookmarks_manager";```
+2) Create the database using the command ```CREATE DATABASE "bookmarks_manager";```.
 
-3) Connect to the newly created database using ```\c bookmarks_manager```
+3) Connect to the newly created database using ```\c bookmarks_manager```.
 
-4) Run the query we have saved in the file ```db/migrations/01_create_bookmarks_table.sql```
+4) Run the queries saved in the files in  ```db/migrations``` to set up the appropriate tables.
