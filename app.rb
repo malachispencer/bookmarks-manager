@@ -5,7 +5,7 @@ class BookmarksManager < Sinatra::Base
   enable :sessions, :method_override
 
   before do
-    @bookmarks = Bookmarks
+    @bookmarks = Bookmark
   end
 
   get '/' do
@@ -13,7 +13,7 @@ class BookmarksManager < Sinatra::Base
   end
 
   get '/bookmarks' do
-    @bookmarks = Bookmarks.all
+    @bookmarks = Bookmark.all
     erb(:bookmarks)
   end
 

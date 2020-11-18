@@ -1,6 +1,6 @@
 feature 'delete bookmarks' do
   scenario 'user can press button to delete bookmark' do
-    Bookmarks.create(title: 'Facebook', url: 'http://www.facebook.com')
+    Bookmark.create(title: 'Facebook', url: 'http://www.facebook.com')
 
     visit('/')
     click_link('Bookmarks')

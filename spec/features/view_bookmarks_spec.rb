@@ -1,10 +1,8 @@
 feature 'viewing bookmarks' do
   scenario 'visiting the bookmarks page' do
-    connection = PG.connect(dbname: 'bookmarks_manager_test')
-
-    Bookmarks.create(title: 'YouTube', url: 'http://www.youtube.com')
-    Bookmarks.create(title: 'Sky Sports', url: 'http://www.skysports.com')
-    Bookmarks.create(title: 'SoundCloud', url: 'http://www.soundcloud.com')
+    Bookmark.create(title: 'YouTube', url: 'http://www.youtube.com')
+    Bookmark.create(title: 'Sky Sports', url: 'http://www.skysports.com')
+    Bookmark.create(title: 'SoundCloud', url: 'http://www.soundcloud.com')
 
     visit('/')
     click_link('Bookmarks')
