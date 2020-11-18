@@ -20,4 +20,12 @@ describe Bookmarks do
       expect(Bookmarks.all.first.url).to eq('http://www.youtube.com')
     end
   end
+
+  describe '.delete' do
+    it 'deletes the bookmark by id' do
+      bookmark = Bookmarks.create(title: 'Facebook', url: 'http://www.facebook.com')
+      Bookmarks.delete(id: bookmark.id)
+      expect(Bookmarks.all.length).to eq(0)
+    end
+  end
 end
