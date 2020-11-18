@@ -1,8 +1,11 @@
 describe Bookmarks do
   describe '.create' do
     it 'adds a bookmark to the database' do
-      Bookmarks.create(url: 'http://www.goal.com')
-      expect(Bookmarks.all).to include('http://www.goal.com')
+      bookmark = Bookmarks.create(title: 'Goal', url: 'http://www.goal.com')
+      persisted_data = persisted_data(id: bookmark.id)
+      expect(bookmark).to be_a(Bookmarks)
+      expect(bookmark.title).to eq('Goal')
+      expect(bookmark.url).to eq('http://www.goal.com')
     end
   end
 
@@ -10,15 +13,11 @@ describe Bookmarks do
     it 'returns the full list of bookmarks' do
       connection = PG.connect(dbname: 'bookmarks_manager_test')
 
-      Bookmarks.create(url: 'http://www.youtube.com')
-      Bookmarks.create(url: 'http://www.skysports.com')
-      Bookmarks.create(url: 'http://www.soundcloud.com')
-
-      bookmarks = Bookmarks.all
-
-      expect(bookmarks).to include('http://www.youtube.com')
-      expect(bookmarks).to include('http://www.skysports.com')
-      expect(bookmarks).to include('http://www.soundcloud.com')
+      Bookmarks.create(title: 'YouTube', url: 'http://www.youtube.com')
+      Bookmarks.create(title: 'Sky Sports', url: 'http://www.skysports.com')
+      Bookmarks.create(title: 'SoundCloud', url: 'http://www.soundcloud.com')
+  
+      expect(Bookmarks.all.first.url).to eq('http://www.youtube.com')
     end
   end
 end

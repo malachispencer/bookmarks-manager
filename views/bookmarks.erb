@@ -2,12 +2,16 @@
 
 <ul> 
   <% @bookmarks.each do |bookmark| %>
-    <li> <%= bookmark %> </li>
+    <li> 
+      <a href="<%= bookmark.url %>"> <%= bookmark.title %> </a>
+    </li>
   <% end %>
 </ul>
 
 <form action="/bookmarks" method="post">
-  <label for="url">Add Bookmark:</label>
-  <input type="text" name="url" placeholder="http://www.example.com" autocomplete="off" required>
+  <label for="title">Title:</label>
+  <input type="text" name="title" autocomplete="off" required>
+  <label for="url">URL:</label>
+  <input type="text" name="url" autocomplete="off" required>
   <input type="submit" value="Submit">
 </form>

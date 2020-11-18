@@ -5,6 +5,7 @@ require 'pg'
 require_relative '../app.rb'
 require_relative '../lib/bookmarks.rb'
 require_relative './setup_test_database.rb'
+require_relative './database_helpers.rb'
 
 ENV['ENVIRONMENT'] = 'test'
 
