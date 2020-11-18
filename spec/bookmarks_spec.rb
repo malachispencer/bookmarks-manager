@@ -28,6 +28,15 @@ describe Bookmark do
     end
   end
 
+  describe '.update' do
+    let(:bookmark) { Bookmark.create(title: 'Makers Academy', url: 'http://www.makersacademy.com') }
+
+    it 'allows user to update title and/or url' do
+      Bookmark.update(id: bookmark.id, title: 'Makers', url: 'http://www.makers.com')
+      expect(Bookmark.all.first.url).to eq('http://www.makers.com')
+    end
+  end
+
   describe '.delete' do
     let(:bookmark) { Bookmark.create(title: 'Facebook', url: 'http://www.facebook.com') }
 
