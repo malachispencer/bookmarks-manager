@@ -30,3 +30,10 @@ I'd like to be able to add a bookmark to my manager.
 As a User,
 so I can remove a site I no longer visit regularly,
 I'd like to be able to delete a bookmark from my manager.
+```
+
+```
+As a User,
+so I can change the title and/or url of a bookmark,
+I'd like to be able to update a bookmark.
+```
