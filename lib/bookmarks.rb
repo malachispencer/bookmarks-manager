@@ -1,6 +1,16 @@
 require 'pg'
 
 class Bookmarks
+  def self.create(url:)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'bookmarks_manager_test')
+    else
+      connection = PG.connect(dbname: 'bookmarks_manager')
+    end
+
+    connection.exec("INSERT INTO bookmarks (url) VALUES ('#{url}');")
+  end
+
   def self.all
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'bookmarks_manager_test')
