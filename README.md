@@ -8,6 +8,12 @@ so I can see sites I visit regularly,
 I'd like to be able to show the full list of my bookmarks.
 ```
 
+```
+As a User,
+so I can save a site I visit regularly,
+I'd like to be able to add a bookmark to my manager.
+```
+
 ## Setting Up The Database
 
 1) Connect to ```psql``` in the command line.
