@@ -1,4 +1,11 @@
 describe Bookmarks do
+  describe '.create' do
+    it 'adds a bookmark to the database' do
+      Bookmarks.create(url: 'http://www.goal.com')
+      expect(Bookmarks.all).to include('http://www.goal.com')
+    end
+  end
+
   describe '.all' do
     it 'returns the full list of bookmarks' do
       connection = PG.connect(dbname: 'bookmarks_manager_test')
