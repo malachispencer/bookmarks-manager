@@ -45,4 +45,13 @@ describe Bookmark do
       expect(Bookmark.all.length).to eq(0)
     end
   end
+
+  describe '.find' do
+    let(:bookmark_one) { Bookmark.create(title: 'Codewars', url: 'http://www.codewars.com') }
+    let(:bookmark_two) { Bookmark.create(title: 'HackerRank', url: 'http://www.hackerrank.com') }
+
+    it 'finds a bookmark from the database by ID and returns it' do
+      expect(Bookmark.find(id: bookmark_one.id)).to eq(bookmark_one)
+    end
+  end
 end
