@@ -51,7 +51,7 @@ describe Bookmark do
     let(:bookmark_two) { Bookmark.create(title: 'HackerRank', url: 'http://www.hackerrank.com') }
 
     it 'finds a bookmark from the database by ID and returns it' do
-      expect(Bookmark.find(id: bookmark_one.id)).to eq(bookmark_one)
+      expect(Bookmark.find(id: bookmark_one.id).url).to eq(bookmark_one.url)
     end
   end
 end
