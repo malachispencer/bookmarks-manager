@@ -7,10 +7,10 @@ feature 'update bookmark' do
 
     expect(page).to have_link('Makers Academy', href: 'http://www.makersacademy.com')
 
-    click_button('Update')
+    first('.bookmark').click_button('Edit')
     fill_in('title', with: 'Makers')
     fill_in('url', with: 'http://www.makers.com')
-    click_button('submit')
+    click_button('Submit')
 
     expect(current_path).to eq('/bookmarks')
     expect(page).to have_link('Makers', href: 'http://www.makers.com')
