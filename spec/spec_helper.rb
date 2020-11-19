@@ -1,13 +1,15 @@
+ENV['ENVIRONMENT'] = 'test'
+
 require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
 require 'pg'
+require_relative '../database_connection_setup.rb'
 require_relative '../app.rb'
 require_relative '../lib/bookmarks.rb'
 require_relative './setup_test_database.rb'
 require_relative './database_helpers.rb'
-
-ENV['ENVIRONMENT'] = 'test'
+require_relative '../lib/database_connection.rb'
 
 Capybara.app = BookmarksManager
 

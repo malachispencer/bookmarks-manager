@@ -7,6 +7,10 @@ describe Bookmark do
       expect(bookmark.id).to eq(bookmark_from_db['id'])
       expect(bookmark.url).to eq('http://www.goal.com')
     end
+
+    it "doesn't add a bookmark if the URL has no scheme" do
+      expect(Bookmark.create(title: 'fakenews', url: 'www.makers.com')).to eq(nil)
+    end
   end
 
   describe '.all' do
