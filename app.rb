@@ -40,6 +40,15 @@ class BookmarksManager < Sinatra::Base
     @bookmarks.update(id: params['id'], title: params['title'], url: params['url'])
     redirect('/bookmarks')
   end
+
+  get '/bookmarks/:id/comments/new' do
+    @bookmark = @bookmarks.find(id: params['id'])
+    erb(:new_comments)
+  end
+
+  post '/bookmarks/:id/comments' do
+
+  end
   
   run! if app_file == $0
 end
