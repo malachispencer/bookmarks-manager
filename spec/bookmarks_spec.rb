@@ -60,6 +60,11 @@ describe Bookmark do
   end
 
   describe '.comments' do
-    
+    let(:comment_class) { double('comment_class') }
+
+    it 'calls the filter method in the Comments class' do
+      expect(comment_class).to receive(:filter).with(bookmark_id: 416)
+      Bookmark.comments(416, comment_class)
+    end
   end
 end
