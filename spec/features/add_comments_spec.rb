@@ -1,4 +1,4 @@
-feature 'adding comments to bookmarks' do
+feature 'add comments to bookmarks' do
   scenario 'user enters a comment on a bookmark' do
     bookmark = Bookmark.create(title: 'Arsenal', url: 'http://www.arsenal.com')
     visit('/')

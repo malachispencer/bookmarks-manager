@@ -58,4 +58,8 @@ describe Bookmark do
       expect(Bookmark.find(id: bookmark_one.id).url).to eq(bookmark_one.url)
     end
   end
+
+  describe '.comments' do
+    
+  end
 end
