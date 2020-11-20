@@ -15,9 +15,11 @@
         <input type="submit" value="Add Comment">
       </form>
     </li>
-    <% bookmark.comments.each do |comment| %>
-      <div> <%= comment.text %> </div>
-    <% end %>
+    <ul>
+      <% bookmark.comments.each do |comment| %>
+        <li><%= comment.text %></li>
+      <% end %>
+    </ul>
   <% end %>
 </ul>
 
