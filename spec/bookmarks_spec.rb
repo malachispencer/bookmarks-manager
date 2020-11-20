@@ -1,7 +1,7 @@
 describe Bookmark do
   describe '.create' do
     let(:bookmark) { Bookmark.create(title: 'Goal', url: 'http://www.goal.com') }
-    let(:bookmark_from_db) { persisted_data(id: bookmark.id) }
+    let(:bookmark_from_db) { persisted_data(table: 'bookmarks', id: bookmark.id) }
     
     it 'adds a bookmark to the database' do
       expect(bookmark.id).to eq(bookmark_from_db['id'])
