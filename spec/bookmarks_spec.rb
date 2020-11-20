@@ -33,38 +33,36 @@ describe Bookmark do
   end
 
   describe '.update' do
-    let(:bookmark) { Bookmark.create(title: 'Makers Academy', url: 'http://www.makersacademy.com') }
-
     it 'allows user to update title and/or url' do
+      bookmark = Bookmark.create(title: 'Makers Academy', url: 'http://www.makersacademy.com')
       Bookmark.update(id: bookmark.id, title: 'Makers', url: 'http://www.makers.com')
       expect(Bookmark.all.first.url).to eq('http://www.makers.com')
     end
   end
 
   describe '.delete' do
-    let(:bookmark) { Bookmark.create(title: 'Facebook', url: 'http://www.facebook.com') }
-
     it 'deletes a given bookmark by its id' do
+      bookmark = Bookmark.create(title: 'Facebook', url: 'http://www.facebook.com')
       Bookmark.delete(id: bookmark.id)
       expect(Bookmark.all.length).to eq(0)
     end
   end
 
   describe '.find' do
-    let(:bookmark_one) { Bookmark.create(title: 'Codewars', url: 'http://www.codewars.com') }
-    let(:bookmark_two) { Bookmark.create(title: 'HackerRank', url: 'http://www.hackerrank.com') }
-
     it 'finds a bookmark from the database by ID and returns it' do
+      bookmark_one = Bookmark.create(title: 'Codewars', url: 'http://www.codewars.com')
+      bookmark_two = Bookmark.create(title: 'HackerRank', url: 'http://www.hackerrank.com')
       expect(Bookmark.find(id: bookmark_one.id).url).to eq(bookmark_one.url)
     end
   end
 
-  describe '.comments' do
+  describe '#comments' do
     let(:comment_class) { double('comment_class') }
 
-    it 'calls the filter method in the Comments class' do
-      expect(comment_class).to receive(:filter).with(bookmark_id: 416)
-      Bookmark.comments(416, comment_class)
+    it 'calls the filter method in the Comments class on a Bookmark instance' do
+      bookmark = Bookmark.create(title: 'Makers', url: 'http://www.makers.com')
+      expect(comment_class).to receive(:filter).with(bookmark_id: bookmark.id)
+      bookmark.comments(comment_class)
     end
   end
 end
