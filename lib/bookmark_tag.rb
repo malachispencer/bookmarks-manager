@@ -1,0 +1,3 @@
+class BookmarkTag
+
+end
