@@ -1,7 +1,4 @@
 describe Comment do
-  
-  
-  
   describe '.create' do
     it 'adds a comment to the database' do
       bookmark = Bookmark.create(title: 'OVO', url: 'http://www.ovosound.com')
