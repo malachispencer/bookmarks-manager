@@ -65,4 +65,14 @@ describe Bookmark do
       bookmark.comments(comment_class)
     end
   end
+
+  describe '#tags' do
+    let(:tag_class) { double :tag_class }
+
+    it 'calls the filter method in the Tag class' do
+      bookmark = Bookmark.create(title: 'Makers', url: 'http://www.makers.com')
+      expect(tag_class).to receive(:filter).with(bookmark_id: bookmark.id)
+      bookmark.tags(tag_class)
+    end
+  end
 end
