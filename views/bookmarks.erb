@@ -17,12 +17,17 @@
       <form action="/bookmarks/<%=bookmark.id%>/tags/new" method="get">
         <input type="submit" value="Add Tag">
       </form>
+      <ul>
+        <% bookmark.comments.each do |comment| %>
+          <li><%= comment.text %></li>
+        <% end %>
+      </ul>
+      <ul>
+        <% bookmark.tags.each do |tag| %>
+          <li><%= tag.content %></li>
+        <% end %>
+      </ul>
     </li>
-    <ul>
-      <% bookmark.comments.each do |comment| %>
-        <li><%= comment.text %></li>
-      <% end %>
-    </ul>
   <% end %>
 </ul>
 
