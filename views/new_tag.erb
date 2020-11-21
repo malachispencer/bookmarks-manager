@@ -1,0 +1,6 @@
+<h2> Add Tag to <%= @bookmark.title %> Bookmark </h2>
+
+<form action="/bookmarks/<%=@bookmark.id%>/tags" method="post">
+  <input type="text" name="tag">
+  <input type="submit" value="Submit">
+</form>
