@@ -3,7 +3,7 @@ feature 'add tag to bookmark' do
     bookmark = Bookmark.create(title: 'Goal', url: 'http://www.goal.com')
 
     visit('/bookmarks')
-    first('.bookmark').click_button('Add tag')
+    first('.bookmark').click_button('Add Tag')
 
     expect(current_path).to eq("/bookmarks/#{bookmark.id}/tags/new")
 
