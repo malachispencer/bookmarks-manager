@@ -11,14 +11,19 @@
       <form action="/bookmarks/<%=bookmark.id%>/edit" method="get">
         <input type="submit" value="Edit">
       </form>
-      <form action="/bookmarks/<%=bookmark.id%>/comments/new" method="get"> 
-        <input type="submit" value="Add Comment">
-      </form>
       <form action="/bookmarks/<%=bookmark.id%>/tags/new" method="get">
         <input type="submit" value="Add Tag">
       </form>
 
       <div>
+        <h3> Comments </h3>
+
+        <div>
+          <form action="/bookmarks/<%=bookmark.id%>/comments/new" method="get"> 
+            <input type="submit" value="Add Comment">
+          </form>
+        </div>
+
         <ul>
           <% bookmark.comments.each do |comment| %>
             <li><%= comment.text %></li>
@@ -27,17 +32,19 @@
       </div>
 
       <% if bookmark.tags.length > 0 %>
-      <div>
-        <ul>
-          <% bookmark.tags.each do |tag| %>
-            <li>
-              <a href="/tags/<%=tag.id%>/bookmarks">
-                <%= tag.content %>
-              </a>
-            </li>
-          <% end %>
-        </ul>
-      </div>
+        <div>
+        <h3> Tags </h3>
+        
+          <ul>
+            <% bookmark.tags.each do |tag| %>
+              <li>
+                <a href="/tags/<%=tag.id%>/bookmarks">
+                  <%= tag.content %>
+                </a>
+              </li>
+            <% end %>
+          </ul>
+        </div>
       <% end %>
       
     </li>
