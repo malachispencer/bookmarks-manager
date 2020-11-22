@@ -1,1 +1,13 @@
-<h1> Bookmarks tagged with </h2>
+<h1> Bookmarks tagged with <%= @tag.content %> </h2>
+
+<div>
+  <ul>
+    <% @tag.bookmarks.each do |bookmark| %>
+      <li>
+        <a href="<%=bookmark.url%>" target="_blank">
+          <%= bookmark.title %>
+        </a>
+      </li>
+     <% end %>
+  </ul>
+</div>

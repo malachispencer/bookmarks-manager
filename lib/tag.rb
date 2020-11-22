@@ -11,10 +11,14 @@ class Tag
 
   def self.create(content:)
     result = DatabaseConnection.query(
-      "INSERT INTO tags (content) VALUES ('#{content}') RETURNING id, content;"
-    )
+      "SELECT * FROM tags WHERE content = '#{content}';"
+    ).first
 
-    Tag.new(id: result[0]['id'], content: result[0]['content'])
+    result = DatabaseConnection.query(
+      "INSERT INTO tags (content) VALUES ('#{content}') RETURNING id, content;"
+    ).first if !result
+
+    Tag.new(id: result['id'], content: result['content'])
   end
 
   def self.find(tag_id:)

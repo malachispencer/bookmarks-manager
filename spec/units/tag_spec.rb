@@ -1,12 +1,22 @@
 describe Tag do
   describe '.create' do
-    it 'adds a tag to the database' do
-      bookmark = Bookmark.create(title: 'Goal', url: 'http://www.goal.com')
-      tag = Tag.create(content: 'football')
-      tag_from_db = persisted_data(table: 'tags', id: tag.id)
+    context "tag doesn't exist" do
+      it 'adds a tag to the database' do
+        tag = Tag.create(content: 'football')
+        tag_from_db = persisted_data(table: 'tags', id: tag.id)
 
-      expect(tag.id).to eq(tag_from_db['id'])
-      expect(tag.content).to eq('football')
+        expect(tag.id).to eq(tag_from_db['id'])
+        expect(tag.content).to eq('football')
+      end
+    end
+
+    context 'tag already exists' do
+      it 'returns the already existing tag' do
+        tag = Tag.create(content: 'music')
+        tag_dup = Tag.create(content: 'music')
+
+        expect(tag.id).to eq(tag_dup.id)
+      end
     end
   end
 
