@@ -22,4 +22,18 @@ class User
       email: result['email']
     )
   end
+
+  def self.find(id:)
+    return nil if !id
+    
+    result =  DatabaseConnection.query(
+      "SELECT * FROM users WHERE id = '#{id}';"
+    ).first
+
+    User.new(
+      id: result['id'], 
+      name: result['name'], 
+      email: result['email']
+    )
+  end
 end
