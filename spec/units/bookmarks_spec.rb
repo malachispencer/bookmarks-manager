@@ -56,6 +56,21 @@ describe Bookmark do
     end
   end
 
+  describe '.filter_by_tag' do
+    it 'returns all the bookmarks associated with the given tag' do
+      tag = Tag.create(content: 'toronto')
+      bookmark_one = Bookmark.create(title: 'OVO', url: 'http://www.ovosound.com')
+      bookmark_two = Bookmark.create(title: 'XO', url: 'http://www.theweeknd.com')
+      bookmark_three = Bookmark.create(title: 'PND', url: 'http://www.partyomo.com')
+      BookmarkTag.create(tag_id: tag.id, bookmark_id: bookmark_one.id)
+      BookmarkTag.create(tag_id: tag.id, bookmark_id: bookmark_two.id)
+      bookmarks = Bookmark.filter_by_tag(tag_id: tag.id)
+
+      expect(bookmarks[0].url).to eq('http://www.ovosound.com')
+      expect(bookmarks[1].id).to eq(bookmark_two.id)
+    end
+  end
+
   describe '#comments' do
     let(:comment_class) { double('comment_class') }
 
@@ -76,13 +91,3 @@ describe Bookmark do
     end
   end
 end
-
-#it 'returns all the bookmarks associated with this tag' do
-  #tag = Tag.create(content: toronto)
-  #bookmark_one = Bookmark.create(title: 'OVO', url: 'http://www.ovosound.com')
-  #bookmark_two = Bookmark.create(title: 'XO', url: 'http://www.theweeknd.com')
-  #bookmark_three = Bookmark.create(title: 'PND', url: 'http://www.partyomo.com')
-  #BookmarkTag.create(tag_id: tag.id, bookmark_id: bookmark_one.id)
-  #BookmarkTag.create(tag_id: tag.id, bookmark_id: bookmark_two.id)
-  #tags = tag.bookmarks
-  #expect()
