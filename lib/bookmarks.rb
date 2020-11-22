@@ -47,9 +47,10 @@ class Bookmark
   def self.filter_by_tag(tag_id:)
     result = DatabaseConnection.query(
       "SELECT id, title, url
-      FROM bookmarks_tags INNER JOIN bookmarks
-      ON bookmarks.id = bookmarks_tags.bookmark_id
-      WHERE bookmarks_tags.tag_id = '#{tag_id}';"
+      FROM bookmarks_tags AS bt
+      INNER JOIN bookmarks AS b
+      ON b.id = bt.bookmark_id
+      WHERE bt.tag_id = '#{tag_id}';"
     )
 
     result.map do |bookmark|
