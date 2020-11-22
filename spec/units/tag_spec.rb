@@ -29,7 +29,7 @@ describe Tag do
 
     it 'calls the .filter_by_tag method in the Bookmark class' do
       tag = Tag.create(content: 'toronto')
-      expect(bookmark_class).to receive(:filter).with(tag_id: tag.id)
+      expect(bookmark_class).to receive(:filter_by_tag).with(tag_id: tag.id)
       tag.bookmarks(bookmark_class)
     end
   end

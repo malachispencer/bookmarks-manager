@@ -76,3 +76,13 @@ describe Bookmark do
     end
   end
 end
+
+#it 'returns all the bookmarks associated with this tag' do
+  #tag = Tag.create(content: toronto)
+  #bookmark_one = Bookmark.create(title: 'OVO', url: 'http://www.ovosound.com')
+  #bookmark_two = Bookmark.create(title: 'XO', url: 'http://www.theweeknd.com')
+  #bookmark_three = Bookmark.create(title: 'PND', url: 'http://www.partyomo.com')
+  #BookmarkTag.create(tag_id: tag.id, bookmark_id: bookmark_one.id)
+  #BookmarkTag.create(tag_id: tag.id, bookmark_id: bookmark_two.id)
+  #tags = tag.bookmarks
+  #expect()
