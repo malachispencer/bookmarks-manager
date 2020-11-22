@@ -17,6 +17,11 @@ class Tag
     Tag.new(id: result[0]['id'], content: result[0]['content'])
   end
 
+  def self.find(tag_id:)
+    result = DatabaseConnection.query("SELECT * FROM tags WHERE id = '#{tag_id}';")
+    Tag.new(id: result[0]['id'], content: result[0]['content'])
+  end
+
   def self.filter(bookmark_id:)
     result = DatabaseConnection.query(
       "SELECT id, content 
