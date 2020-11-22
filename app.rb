@@ -4,6 +4,7 @@ require_relative './lib/bookmarks.rb'
 require_relative './lib/comment.rb'
 require_relative './lib/tag.rb'
 require_relative './lib/bookmark_tag.rb'
+require_relative './lib/user'
 require_relative './database_connection_setup.rb'
 
 class BookmarksManager < Sinatra::Base
