@@ -69,6 +69,14 @@ class BookmarksManager < Sinatra::Base
     @tag = Tag.find(tag_id: params['tag_id'])
     erb(:tag_bookmarks)
   end
+
+  get '/users/new' do
+    erb(:new_user)
+  end
+
+  post '/users' do
+    redirect('/bookmarks')
+  end
   
   run! if app_file == $0
 end
