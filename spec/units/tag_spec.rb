@@ -23,4 +23,14 @@ describe Tag do
       expect(tags[1].content).to eq(tag_two.content)
     end
   end
+
+  describe '#bookmarks' do
+    let(:bookmark_class) { double('bookmark_class') }
+
+    it 'calls the .filter_by_tag method in the Bookmark class' do
+      tag = Tag.create(content: 'toronto')
+      expect(bookmark_class).to receive(:filter).with(tag_id: tag.id)
+      tag.bookmarks(bookmark_class)
+    end
+  end
 end
