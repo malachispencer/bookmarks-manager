@@ -10,6 +10,17 @@ describe Tag do
     end
   end
 
+  describe '.find' do
+    it 'retuns the tag with the given id' do
+      tag_one = Tag.create(content: 'canada')
+      tag_two = Tag.create(content: 'usa')
+      found_tag = Tag.find(tag_id: tag_one.id)
+      
+      expect(found_tag.id).to eq(tag_one.id)
+      expect(found_tag.content).to eq('canada')
+    end
+  end
+
   describe '.filter' do
     it 'returns all the tags for the Bookmark(id) passed in' do
       bookmark = Bookmark.create(title: 'Goal', url: 'http://www.goal.com')
