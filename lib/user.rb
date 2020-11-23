@@ -32,7 +32,9 @@ class User
     ).first
 
     return nil if !result
-
+    return nil if BCrypt::Password.new(result['password']) != password
+    
+    
     User.new(
       id: result['id'], 
       name: result['name'], 
