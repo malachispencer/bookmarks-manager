@@ -31,6 +31,8 @@ class User
       "SELECT * FROM users WHERE email = '#{email}';"
     ).first
 
+    return nil if !result
+
     User.new(
       id: result['id'], 
       name: result['name'], 
