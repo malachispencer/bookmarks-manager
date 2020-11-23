@@ -4,6 +4,10 @@
   <h3> Welcome, <%= @user.name %> </h3>
 <% end %>
 
+<form action="/sessions/destroy" method="post">
+  <input type="submit" value="Sign Out" />
+</form>
+
 <ul> 
   <% @bookmarks.each do |bookmark| %>
     <li class="bookmark" id="bookmark-<%=bookmark.id%>"> 
