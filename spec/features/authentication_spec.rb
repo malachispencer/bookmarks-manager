@@ -4,7 +4,7 @@ feature 'authentication' do
 
     visit('/')
     click_link('Sign In')
-    fill_in('name', with: 'mjss')
+    fill_in('username', with: 'mjss')
     fill_in('email', with: 'm.spencer@makers.com')
     fill_in('password', with: 'p20201122')
     click_button('Sign In')

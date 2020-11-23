@@ -86,6 +86,10 @@ class BookmarksManager < Sinatra::Base
     session[:user_id] = user.id
     redirect('/bookmarks')
   end
+
+  get '/sessions/new' do
+    erb(:new_session)
+  end
   
   run! if app_file == $0
 end
