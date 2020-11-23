@@ -26,7 +26,7 @@ class User
     )
   end
 
-  def self.authenticate(name:, email:, password:)
+  def self.authenticate(email:, password:)
     result = DatabaseConnection.query(
       "SELECT * FROM users WHERE email = '#{email}';"
     ).first

@@ -39,7 +39,7 @@ describe User do
   describe '.authenticate' do
     it 'returns a user given a correct username, email and password, if one exists' do
       user = User.create(name: 'mjss', email: 'm.spencer@makers.com', password: 'p20201122')
-      authed_user = User.authenticate(name: 'mjss', email: 'm.spencer@makers.com', password: 'p20201122')
+      authed_user = User.authenticate(email: 'm.spencer@makers.com', password: 'p20201122')
 
       expect(authed_user.name).to eq(user.name)
       expect(authed_user.email).to eq(user.email)
@@ -47,7 +47,7 @@ describe User do
 
     it 'returns nil if user gives the incorrect email' do
       User.create(name: 'mjss', email: 'm.spencer@makers.com', password: 'p20201122')
-      authed_user = User.authenticate(name: 'mjss', email: 'wrong@makers.com', password: 'p20201122')
+      authed_user = User.authenticate(email: 'wrong@makers.com', password: 'p20201122')
       expect(authed_user).to be_nil
     end
   end
